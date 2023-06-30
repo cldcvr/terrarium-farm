@@ -27,3 +27,14 @@ override.tf.json
 
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
 # example: *tfplan*
+
+.env
+cache_data
+__debug_bin
+.bin
+terraform/tr-private-sources.tf
+
+### Protobuf Dependencies ###
+api/pkg/pb/google/*
+api/pkg/pb/grpc/*
+api/pkg/pb/protoc-gen-openapiv2/*
