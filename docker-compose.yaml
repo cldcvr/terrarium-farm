@@ -1,0 +1,31 @@
+version: '3'
+
+volumes:
+  postgres_data:
+    name: tr_farm_postgres_data
+
+services:
+  postgres:
+    image: postgres:11
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${TR_DB_PASSWORD:-}
+      POSTGRES_DB: ${TR_DB_NAME:-cc_terrarium}
+    volumes:
+      - ./data:/docker-entrypoint-initdb.d
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+
+  harvester:
+    image: cldcvr/terrarium-seeder
+    environment:
+      # DB config
+      TR_DB_HOST: ${TR_DB_HOST:-postgres}
+      TR_DB_USER: ${TR_DB_USER:-}
+      TR_DB_PORT: ${TR_DB_PORT:-}
+      TR_DB_SSL_MODE: ${TR_DB_SSL_MODE:-}
+      TR_DB_PASSWORD: ${TR_DB_PASSWORD:-}
+    volumes:
+      - ./terraform:/app/terraform
+      - ./cache_data:/app/cache_data
