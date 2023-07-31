@@ -1,12 +1,22 @@
 version: '3'
 
+name: terrarium
+
+networks:
+  terrarium:
+    driver: bridge
+    name: ${TER_DOCKER_NETWORK:-terrarium}
+    external: ${TER_DOCKER_NETWORK_EXTERNAL:-false}
+
 volumes:
   postgres_data:
-    name: tr_farm_postgres_data
+    name: tr_postgres_data
 
 services:
   postgres:
     image: postgres:11
+    container_name: postgres
+    networks: [terrarium]
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: ${TR_DB_PASSWORD:-}
@@ -19,6 +29,7 @@ services:
 
   harvester:
     image: cldcvr/terrarium-farm-harvester
+    networks: [terrarium]
     environment:
       # DB config
       TR_DB_HOST: ${TR_DB_HOST:-postgres}
