@@ -8,6 +8,10 @@ networks:
     name: ${TER_DOCKER_NETWORK:-terrarium}
     external: ${TER_DOCKER_NETWORK_EXTERNAL:-false}
 
+secrets:
+  netrc:
+    file: $HOME/.netrc
+
 volumes:
   postgres_data:
     name: tr_postgres_data
@@ -30,6 +34,9 @@ services:
   harvester:
     image: cldcvr/terrarium-farm-harvester
     networks: [terrarium]
+    secrets:
+      - source: netrc
+        target: /root/.netrc
     environment:
       # DB config
       TR_DB_HOST: ${TR_DB_HOST:-postgres}
