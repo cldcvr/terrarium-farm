@@ -14,7 +14,7 @@ jobs:
 
       - name: Download latest release asset
         run: |
-          make pull-release
+          make docker-init pull-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

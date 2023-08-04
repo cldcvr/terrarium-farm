@@ -14,6 +14,15 @@ clean_tf:
 	rm -rf $(TERRAFORM_DIR)/.terraform
 	rm -f $(TERRAFORM_DIR)/.terraform.lock.hcl
 
+.PHONY: docker-init
+docker-init:  ## Initialize the environment before running docker commands
+	@touch ${HOME}/.netrc
+ifneq (${GITHUB_TOKEN},)
+	@echo "updating GitHub token in ${HOME}/.netrc"
+	@sed -i '/^machine github.com login/d' ${HOME}/.netrc
+	@echo "machine github.com login x-access-token ${GITHUB_TOKEN}" >> ${HOME}/.netrc
+endif
+
 .PHONY: start-db
 start-db:  ## Starts database in docker container
 	docker compose up -d postgres
