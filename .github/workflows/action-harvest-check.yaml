@@ -16,7 +16,7 @@ jobs:
         run: |
           make docker-init pull-release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
 
       - name: Harvest farm sql dump
         run: |
