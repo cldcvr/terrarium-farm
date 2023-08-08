@@ -19,8 +19,8 @@ docker-init:  ## Initialize the environment before running docker commands
 	@touch ${HOME}/.netrc
 ifneq (${GITHUB_TOKEN},)
 	@echo "updating GitHub token in ${HOME}/.netrc"
-	@sed -i '/^machine github.com login/d' ${HOME}/.netrc
-	@echo "machine github.com login x-access-token ${GITHUB_TOKEN}" >> ${HOME}/.netrc
+	@sed -i.bak '/^machine github.com login/d' ${HOME}/.netrc
+	@echo "machine github.com login x-access-token password ${GITHUB_TOKEN}" >> ${HOME}/.netrc
 endif
 
 .PHONY: start-db
