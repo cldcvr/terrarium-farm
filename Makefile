@@ -50,7 +50,7 @@ data/$(FARM_DB_DUMP_FILE):
 .PHONY: pull-release
 pull-release:
 	@echo "Downloading db dump from the latest terrarium-farm release..."
-	@gh release download $(FARM_VERSION) --clobber -p 'terrarium_farm.psql' -O data/$(FARM_DB_DUMP_FILE)
+	@gh release download $(FARM_VERSION) --clobber -p 'terrarium_farm.psql' -O data/$(FARM_DB_DUMP_FILE) || echo "No previous release found, skipping!"
 
 .PHONY: help
 help:
