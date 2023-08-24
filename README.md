@@ -2,7 +2,7 @@
 
 This repo contains the various artifacts that are used to load the Terrarium "seed" database (an operation called "harvest"). As new artifacts are added, the tools here can be used to incrementally add new items to the databases (as well as start from an empty DB)
 
-Terraform modules to be used for seeding should be placed in the `./modules` directory.
+Terraform modules to be used for seeding should be added to the `./modules.yaml` file.
 
 ## Run harvest program
 

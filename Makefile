@@ -1,5 +1,3 @@
-TERRAFORM_DIR := ./modules
-
 POSTGRES_CONTAINER := postgres
 POSTGRES_DB := cc_terrarium
 POSTGRES_USER := postgres
@@ -8,11 +6,6 @@ FARM_DB_DUMP_FILE := $(POSTGRES_DB).psql
 ifeq ($(FARM_VERSION),)
 FARM_VERSION := latest
 endif
-
-.PHONY: clean_tf
-clean_tf:
-	rm -rf $(TERRAFORM_DIR)/.terraform
-	rm -f $(TERRAFORM_DIR)/.terraform.lock.hcl
 
 .PHONY: docker-init
 docker-init:  ## Initialize the environment before running docker commands
