@@ -28,6 +28,7 @@ jobs:
         run: |
           mkdir release-assets
           cp data/cc_terrarium.psql release-assets/terrarium_farm.psql
+          cp data/cc_terrarium_data.sql.gz release-assets/cc_terrarium_data.sql.gz
           ls -la release-assets
 
       - name: Release
