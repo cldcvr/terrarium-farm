@@ -34,6 +34,7 @@ __debug_bin
 .bin
 terraform/tr-private-sources.tf
 data/*.*sql
+data/*.*gz
 
 ### Protobuf Dependencies ###
 api/pkg/pb/google/*
