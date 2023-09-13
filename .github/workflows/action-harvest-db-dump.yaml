@@ -40,3 +40,4 @@ jobs:
           title: "Farm Release"
           files: |
             release-assets/terrarium_farm.psql
+            release-assets/cc_terrarium_data.sql.gz
