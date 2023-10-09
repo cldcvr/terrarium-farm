@@ -28,14 +28,8 @@ farm:
   - name: xa_security_group
     source: "github.com/cldcvr/cldcvr-xa-terraform-aws-security-group?ref=v0.1.0"
     export: true
-  - name: xa_ec2_instance
-    source: "github.com/cldcvr/cldcvr-xa-terraform-aws-ec2-instance-module?ref=v0.1.0"
-    export: true
   - name: xa_db_instance
     source: "github.com/cldcvr/cldcvr-xa-terraform-aws-db-instance?ref=v0.1.0"
-    export: true
-  - name: xa_s3_bucket
-    source: "github.com/cldcvr/cldcvr-xa-terraform-aws-s3-bucket?ref=v0.1.0"
     export: true
   - name: xa_key_pair
     source: "github.com/cldcvr/cldcvr-xa-terraform-aws-key-pair?ref=v0.1.0"
