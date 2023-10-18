@@ -1,0 +1,37 @@
+# This is an example on how to write platform.yaml. Running terrarium generate on 
+# these platforms will only generate a dummy code. Please dont use this to generate a 
+# functional code for your use case
+platforms:
+  - title: EKS
+    description: This is a demo platform for EKS. It's expected to generate dummy code for demonstration purposes and is not functional.
+    repo_url: https://github.com/cldcvr/terrarium
+    repo_directory: examples/platform/
+    revisions:
+      - label: v0.1
+        type: tag
+      - label: main
+        type: branch
+
+  - title: AWS Serverless
+    description: This is a demo platform for AWS Serverless. It's expected to generate dummy code for demonstration purposes and is not functional.
+    repo_url: https://github.com/cldcvr/terrarium
+    repo_directory: examples/platform/
+    revisions:
+      - label: v0.2
+        type: tag
+
+  - title: GKE
+    description: This is a demo platform for Google Kubernetes Engine. It's expected to generate dummy code for demonstration purposes and is not functional.
+    repo_url: https://github.com/cldcvr/terrarium
+    repo_directory: examples/platform/
+    revisions:
+      - label: v0.3
+        type: tag
+
+  - title: GCP Serverless
+    description: This is a demo platform for GCP Serverless. It's expected to generate dummy code for demonstration purposes and is not functional.
+    repo_url: https://github.com/cldcvr/terrarium
+    repo_directory: examples/platform/
+    revisions:
+      - label: v0.5
+        type: tag
