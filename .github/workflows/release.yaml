@@ -15,7 +15,7 @@ jobs:
       - name: Download latest release asset
         run: |
           make docker-init
-          mak pull-release || echo "no release asset found, skipping."
+          make pull-release || echo "no release asset found, skipping."
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
 
