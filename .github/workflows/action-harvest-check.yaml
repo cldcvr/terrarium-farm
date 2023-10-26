@@ -1,8 +1,9 @@
 name: Test Harvest
 on:
   pull_request:
-    branches:
-      - main
+    branches: ["main"]
+  push:
+    branches: ["main"]
 
 jobs:
   checks:
@@ -12,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Download latest release asset
+      - name: Download latest release asset # use current latest release data as seed
         run: |
           make docker-init
           make pull-release || echo "no release asset found, skipping."
@@ -24,3 +25,7 @@ jobs:
           make harvest db-dump
         env:
           TR_DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+
+      - uses: actions/upload-artifact@v3 # just for reference, upload the dump files as workflow artifacts
+        with:
+          path: data/*.*sql*
