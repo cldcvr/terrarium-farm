@@ -4,62 +4,80 @@ farm:
     source: "terraform-aws-modules/eks/aws"
     version: "18.31.2"
     export: true
+    group: g1
   - name: vpc
     source: "terraform-aws-modules/vpc/aws"
     version: "4.0.2"
     export: true
+    group: g1
   - name: security-group
     source: "terraform-aws-modules/security-group/aws"
     version: "5.1.0"
     export: true
+    group: g1
   - name: rds
     source: "terraform-aws-modules/rds/aws"
     version: "5.1.1"
     export: true
+    group: g1
   - name: kms
     source: "terraform-aws-modules/kms/aws"
     version: "1.5.0"
     export: true
+    group: g1
 
   # private modules
   - name: xa_vpc
     source: "github.com/cldcvr/cldcvr-xa-terraform-aws-vpc?ref=v0.1.0"
     export: true
+    group: g1
   - name: xa_security_group
     source: "github.com/cldcvr/cldcvr-xa-terraform-aws-security-group?ref=v0.1.0"
     export: true
+    group: g1
   - name: xa_db_instance
     source: "github.com/cldcvr/cldcvr-xa-terraform-aws-db-instance?ref=v0.1.0"
     export: true
+    group: g1
   - name: xa_key_pair
     source: "github.com/cldcvr/cldcvr-xa-terraform-aws-key-pair?ref=v0.1.0"
     export: true
+    group: g1
   - name: xa_elasticache_cluster
     source: "github.com/cldcvr/cldcvr-xa-terraform-aws-elasticache-cluster?ref=v0.1.0"
     export: true
+    group: g1
   - name: xa_ecr_repository
     source: "github.com/cldcvr/cldcvr-xa-terraform-aws-ecr-repository"
     export: true
+    group: g1
   - name: xa_route53_zone
     source: "github.com/cldcvr/cldcvr-xa-terraform-aws-route53-zone?ref=v0.1.0"
     export: true
+    group: g1
   - name: xa_aws_iam_role
     source: "github.com/cldcvr/cldcvr-xa-terraform-aws-iam-role?ref=v0.1.0"
     export: true
+    group: g1
   - name: xa_eks_cluster
     source: "github.com/cldcvr/cldcvr-xa-terraform-aws-eks-cluster?ref=pranay%2FawsVersionMismatch"
     export: true
+    group: g1
 
   # non-exported modules (i.e. resources and mappings only)
   - name: voting-demo
     source: "github.com/cldcvr/codepipes-tutorials//voting/infra/aws/eks?ref=terrarium-sources"
     export: false
+    group: g2
   - name: serverless-sample
     source: "github.com/cldcvr/codepipes-tutorials//serverless-sample/infra/aws?ref=terrarium-sources"
     export: false
+    group: g2
   - name: wpdemo-eks
     source: "github.com/cldcvr/codepipes-tutorials//wpdemo/infra/aws/eks?ref=terrarium-sources"
     export: false
+    group: g2
   - name: wpdemo-ec2
     source: "github.com/cldcvr/codepipes-tutorials//wpdemo/infra/aws/ec2?ref=terrarium-sources"
     export: false
+    group: g2
